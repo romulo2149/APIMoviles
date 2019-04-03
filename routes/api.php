@@ -24,3 +24,17 @@ Route::post('/agregarUsuarios', 'UsuarioController@agregarUsuarios');
 Route::post('/loginUsuario', 'UsuarioController@loginUsuario');
 
 Route::put('/cambiarFoto', 'UsuarioController@updateUsuario');
+
+Route::get('/verPedidos/{estatus}/{fecha}', 'PedidoController@verPedidos');
+
+Route::get('/mostrarPedido/{id}', 'PedidoController@mostrarPedido');
+
+Route::put('/editarPedido', 'PedidoController@editarPedido');
+
+Route::put('/rechazarPedido', 'PedidoController@rechazarPedido');
+
+Route::get('/direccion', 'MapaController@Mapa');
+
+Route::get('/rutaMapa/{url}/{lat}/{lon}', 'MapaController@Ruta');
+
+Route::get('/ruta2', 'MapaController@Ruta2');

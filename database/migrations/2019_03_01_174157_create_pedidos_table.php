@@ -18,13 +18,14 @@ class CreatePedidosTable extends Migration
             $table->string('direccion',200);
             $table->string('descripcion', 200);
             $table->date('fecha_entrega');
-            $table->binary('imagen_paquete')->nullable();
-            $table->binary('firma')->nullable();
-            $table->binary('id_frente')->nullable();
-            $table->binary('id_atras')->nullable();
-            $table->boolean('entregado')->default(0)->change();
+            $table->enum('entregado', ['si', 'no', 'pendiente']);
             $table->integer('id_repartidor')->unsigned()->nullable();
+            $table->string('parentezco', 100)->nullable();
         });
+        DB::statement('ALTER TABLE pedidos ADD imagen_paquete  MEDIUMBLOB null');
+        DB::statement('ALTER TABLE pedidos ADD firma  MEDIUMBLOB null');
+        DB::statement('ALTER TABLE pedidos ADD id_frente  MEDIUMBLOB null');
+        DB::statement('ALTER TABLE pedidos ADD id_atras  MEDIUMBLOB null');
     }
 
     /**

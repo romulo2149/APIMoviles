@@ -15,6 +15,10 @@ class UsuarioController extends Controller
     public function getUsuarios()
     {
         $usuario = Usuario::all();
+        foreach($usuario as $u)
+        {
+            $u['fotoPerfil'] = base64_encode($u['fotoPerfil']);
+        }
         return response()->json($usuario);
     }
 
@@ -33,7 +37,7 @@ class UsuarioController extends Controller
     public function loginUsuario(Request $request)
     {
         $usuario = Usuario::where([['correo_electronico', '=', $request->correo],
-                                   ['password', '=', $request->pass]])
+                                   ['password', '=', md5($request->pass)]])
                                    ->get();
         if(!$usuario->isEmpty())
         {

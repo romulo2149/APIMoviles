@@ -10,7 +10,7 @@ class Pedido extends Model
     public $primaryKey = 'id';
     public $incrementing = true;
     protected $fillable = [
-        'descripcion', 'direccion', 'fecha_entrega', 'imagen_paquete', 'firma', 'id_frente', 'id_atras', 'entregado', 'id_repartidor'
+        'descripcion', 'direccion', 'fecha_entrega', 'imagen_paquete', 'firma', 'id_frente', 'id_atras', 'entregado', 'id_repartidor', 'parentezco'
     ];
     public $timestamps = false;
 }

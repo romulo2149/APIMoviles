@@ -18,7 +18,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nombre', 100);
             $table->string('correo_electronico',100)->unique();
             $table->string('password',100);
-            $table->enum('estatus', ['activa', 'inactiva', 'eliminada']);
+            $table->enum('estatus', ['activo', 'inactivo', 'eliminado']);
         });
         DB::statement('ALTER TABLE usuarios ADD fotoPerfil  MEDIUMBLOB');
     }
